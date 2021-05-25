@@ -1,0 +1,19 @@
+
+
+
+div.transbox {
+    margin: 30px;
+      width:250px;
+      height:300px;
+    background-color: rgba(241, 184, 98, 0.589);
+    border: 1px solid black;
+      border-radius: 35px;
+    
+  }
+  
+  div.transbox p {
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
+  }
+  

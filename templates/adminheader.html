@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {%load static%}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static '/css/style1.css' %}">
+</head>
+<body>
+<div class="navbar">
+    <a href="/logout">LOGOUT</a>
+  <div class="dropdown">
+    <button class="dropbtn">REPORT
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/viewstaffall">Staff</a>
+      <a href="/viewproductall">Products</a>
+      <a href="/viewcustomerall">Customer</a>
+    </div>
+  </div> 
+  <a href="/allproductz">VIEW COMPLAINTS</a>
+  <div class="dropdown">
+    <button class="dropbtn">MODEL MANAGEMENT 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/addmodel">Add Model</a>
+      <a href="/viewaddmodel">Remove Model</a>
+    </div>
+  </div> 
+  <div class="dropdown">
+    <button class="dropbtn">PRODUCT MANAGEMENT
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/addproduct">Add Product</a>
+      <a href="/viewaddproducts">Update Product</a>
+      <a href="/viewaddproduct">Remove Product</a>
+    </div>
+  </div> <div class="dropdown">
+    <button class="dropbtn">ACCOUNT MANAGEMENT
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/addaccount">Add Account</a>
+      <a href="/viewaddaccount">Remove Account</a>
+    </div>
+  </div> 
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+   {% load static %}
+   <head>
+       <link rel="stylesheet" href="{% static '/css/phone.css' %}">
+   </head>
+
+<div class="basic">
+  {% include "adminheader.html" %}
+
+</div>
+<div class="container">
+  <div class="left">
+    <div class="header">
+     
+    </div>
+    <div class="form">
+        <form action="/pupdate/{{st.id}}" enctype= "multipart/form-data" method="POST" name="f1">
+          {% csrf_token %}
+      <label>Model No</label>
+      <br>
+      <input type="text" class="form-field animation a3" placeholder="product Name" name="name" value="{{st.model_no}}" required><br>
+      <label>Product Name</label><br>
+      <input type="text" class="form-field animation a3" placeholder="product Name" name="name" value="{{st.product_name}}" required><br>
+      <label>description</label><br>
+      <input type="text" class="form-field animation a3" placeholder="description" name="description" value="{{st.description}}" required><br>
+      <label>size</label><br>
+      <input type="text" class="form-field animation a3" placeholder="size" name="size" value="{{st.size}}" required><br>
+      <label>colour</label><br>
+      <input type="text" class="form-field animation a3" placeholder="colour" name="colour" value="{{st.colour}}" required><br>
+      <label>price</label><br>
+      <input type="text" class="form-field animation a3" placeholder="price" name="price" value="{{st.price}}" required><br>
+      <label>stock</label><br>
+      <input type="text" class="form-field animation a3" placeholder="stock" name="stock" value="{{st.stock}}" required><br>
+      <button class="animation a6" type="submit">Update</button>
+    </form>
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</html>

@@ -1,0 +1,43 @@
+<html>
+   {% load static %}
+   <head>
+       <link rel="stylesheet" href="{% static '/css/phone.css' %}">
+       <script type="text/javascript">
+        function valid()
+          {
+            curDate= new Date();
+          enterDate=new
+          Date(f1.cmdate.value);
+          if(enterDate<curDate)
+          {
+            alert("Enter valid date");
+            f1.cmdate.focus;
+            return false;
+          }
+          return true;
+          }
+          </script>
+   </head>
+
+<div class="basic">
+  {% include "coustomerheader.html" %}
+
+</div>
+<div class="container">
+  <div class="left">
+   
+    <div class="form">
+        <form action="/complaintsave/{{st}}" enctype= "multipart/form-data" method="POST" name="f1">
+          {% csrf_token %}
+      <label>complaints</label>
+      <br>
+      <input type="text" class="form-field animation a3" placeholder="complaints" name="complaints" required><br>
+      <label>complaint_date</label><br>
+      <input type="date" class="form-field animation a3" placeholder="complaint_date" name="cmdate" required><br>
+      <button class="animation a6" type="submit" onclick="return valid()">Register</button>
+    </form>
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</html>

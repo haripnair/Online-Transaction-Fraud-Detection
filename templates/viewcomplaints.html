@@ -1,0 +1,66 @@
+
+
+
+
+<html>
+    <head>
+            <div class="basic">
+                    {% include "adminheader.html" %}
+                  
+                  </div>
+        <title></title>
+        {%load static%}
+        <style>
+            body{
+                background-image: url({% static '/img/phone.jpg' %});
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size:100% 100%;
+                
+            }
+            #customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers td{
+    background-color: white;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(13, 14, 13);
+  color: white;
+}
+        </style>
+    </head>
+    <body>
+        <br><br><br>
+        <table align="center" id="customers">
+            <tr>
+                <th>complaint_id</th>
+                <th>coustomer_id</th>
+                <th>product_id</th>
+                <th>complaints</th>
+                <th>complaint_date</th>
+            </tr>
+            {% for p in st %}
+            <tr>
+                <td>{{p.complaint_id}}</td>
+                <td>{{p.coustomer_id}}</td>
+                <td>{{p.product_id}}</td>
+                <td>{{p.complaints}}</td>
+                <td>{{p.complaint_date}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

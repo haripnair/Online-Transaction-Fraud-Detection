@@ -1,0 +1,72 @@
+
+
+
+
+<html>
+    <head>
+        <title></title>
+        {%load static%}
+        <div class="basic">
+                {% include "coustomerheader.html" %}
+              
+              </div> 
+        <style>
+            body{
+                background-image: url({% static '/img/phone.jpg' %});
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size:100% 100%;
+                
+            }
+            #customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers td{
+    background-color: white;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(17, 17, 17);
+  color: white;
+}
+        </style>
+    </head>
+    <body>
+        <br><br><br><br>
+        <table align="center" id="customers">
+            <tr>
+                <th>order_id</th>
+                <th>coustomer_id</th>
+                <th>product_id</th>
+                <th>quantity</th>
+                <th>amount</th>
+                <th>order_date</th>
+                <th>status</th>
+                <th></th>
+            </tr>
+            {% for p in st %}
+            <tr>
+                <td>{{p.order_id}}</td>
+                <td>{{p.coustomer_id}}</td>
+                <td>{{p.product_id}}</td>
+                <td>{{p.quantity}}</td>
+                <td>{{p.amount}}</td>
+                <td>{{p.order_date}}</td>
+                <td>{{p.status}}</td>
+                <td><a href="/viewdelivery/{{p.order_id}}">delivery_status</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+   {% load static %}
+   <head>
+       <link rel="stylesheet" href="{% static '/css/phone.css' %}">
+       <script type="text/javascript">
+        function valid()
+          {
+            if(!isNaN(f1.name.value))
+           {
+             alert("Enter name in charecter format.");
+             f1.name.focus();
+         return false;
+           }
+           if(f1.phone.value.length!=10)
+           {
+             alert("phone number should be atleast 10..");
+             f1.phone.focus();
+         return false;
+           }
+           if(isNaN(f1.phone.value))
+           {
+             alert("Enter phone in numeric format.");
+             f1.phone.focus();
+         return false;
+           }
+           return true;
+          }
+          </script>
+   </head>
+
+<div class="basic">
+  {% include "publicheader.html" %}
+
+</div>
+<div class="container">
+  <div class="left">
+    <div class="header">
+     
+      
+    </div>
+    <div class="form">
+        <form action="/coustomersave/" enctype= "multipart/form-data" method="POST" name="f1">
+          {% csrf_token %}
+      <label> Name</label>
+      <br>
+      <input type="text" class="form-field animation a3" placeholder="Name" name="name" required><br>
+      <label>Address</label><br>
+      <input type="text" class="form-field animation a3" placeholder="Address" name="address" required><br>
+      <label>Phone</label><br>
+      <input type="text" class="form-field animation a3" placeholder="Phone" name="phone" required><br>
+      <label>Email</label><br>
+      <input type="email" class="form-field animation a3" placeholder="Email" name="email" required>
+      <br>
+      <button class="animation a6" type="submit" onclick="return valid()">Register</button>
+    </form>
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</html>

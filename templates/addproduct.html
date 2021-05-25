@@ -1,0 +1,70 @@
+<html>
+   {% load static %}
+   <head>
+       <link rel="stylesheet" href="{% static '/css/phone.css' %}">
+       <script type="text/javascript">
+        function valid()
+          {
+            if(!isNaN(f1.name.value))
+           {
+             alert("Enter product name in charecter format.");
+             f1.name.focus();
+         return false;
+           }
+           if(isNaN(f1.price.value))
+           {
+             alert("Enter price in numeric format.");
+             f1.price.focus();
+         return false;
+           }
+           if(isNaN(f1.stock.value))
+           {
+             alert("Enter stock in numeric format.");
+             f1.stock.focus();
+         return false;
+           }
+           return true;
+          }
+          </script>
+   </head>
+
+<div class="basic">
+  {% include "adminheader.html" %}
+
+</div>
+<div class="container">
+  <div class="left">
+    <div class="header">
+      
+    </div>
+    <div class="form">
+        <form action="/addproductsave/" enctype= "multipart/form-data" method="POST" name="f1">
+          {% csrf_token %}
+      <label>Model No</label>
+      <br>
+      <select name="modelno"><option value="select" class="form-field animation a3">---select---</option>
+      {% for stud in st %}     
+       <option value="{{stud.model_no}}">{{stud.model_no}}</option>
+       {% endfor %}  
+      </select><br>
+      <label>Prod_Name</label><br>
+      <input type="text" class="form-field animation a3" placeholder="product Name" name="name" required><br>
+      <label>description</label><br>
+      <input type="text" class="form-field animation a3" placeholder="description" name="description" required><br>
+      <label>size</label><br>
+      <input type="text" class="form-field animation a3" placeholder="size" name="size" required><br>
+      <label>colour</label><br>
+      <input type="text" class="form-field animation a3" placeholder="colour" name="colour" required><br>
+      <label>price</label><br>
+      <input type="text" class="form-field animation a3" placeholder="price" name="price" required><br>
+      <label>stock</label><br>
+      <input type="text" class="form-field animation a3" placeholder="stock" name="stock" required><br>
+      <label>Photo</label><br>
+      <input type="file" class="form-field animation a3" placeholder="Photo" name="photo" required><br>
+      <button class="animation a6" type="submit" onclick="return valid()">LOGIN</button>
+    </form>
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</html>

@@ -1,0 +1,44 @@
+
+
+
+
+<html>
+    <head>
+        <title></title>
+        {%load static%}
+        <div class="basic">
+         {% include "adminheader.html" %}
+         
+               </div>
+      
+        <link href="{% static '/css/t1.css' %}" rel="stylesheet" type="text/css" media="all">
+    </head>
+    <body>
+            {% for p in st %}
+            <div style="float:left; padding:10px;">
+
+                <div class="background">
+            <div class="transbox">
+            <center>
+            <br>
+            <br>
+            <img src="{{p.Photo}}" height="100" width="100">
+            
+            <br>
+            product_name: {{p.product_name}}<br>
+            description:{{p.description}}<br>
+            size:{{p.size}}<br>
+            colour:{{p.colour}}<br>
+            price:{{p.price}}<br>
+            stock:{{p.stock}}<br>
+         
+            <br>    
+            </center>
+           </div>
+           </div>
+        </div>
+            {% endfor %}
+      
+        </table>
+    </body>
+</html>

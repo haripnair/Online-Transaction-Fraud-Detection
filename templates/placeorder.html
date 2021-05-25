@@ -1,0 +1,59 @@
+<html>
+   {% load static %}
+   <head>
+       <link rel="stylesheet" href="{% static '/css/sample.css' %}">
+       <script type="text/javascript">
+        function valid()
+          {
+            if(!isNaN(f1.name.value))
+           {
+             alert("Enter name in charecter format.");
+             f1.name.focus();
+         return false;
+           }
+           curDate= new Date();
+          enterDate=new
+          Date(f1.acdate.value);
+          if(enterDate<curDate)
+          {
+            alert("Enter valid date");
+            f1.acdate.focus;
+            return false;
+          }
+          if(isNaN(f1.stock.value))
+           {
+             alert("Enter stock in numeric format.");
+             f1.stock.focus();
+         return false;
+           }
+           return true;
+          }
+          </script>
+   </head>
+
+<div class="basic">
+  {% include "adminheader.html" %}
+
+</div>
+<div class="container">
+  <div class="left">
+    <div class="header">
+      <h2 class="animation a1">Welcome</h2>
+      
+    </div>
+    <div class="form">
+        <form action="/addaccountsave/" enctype= "multipart/form-data" method="POST" name="f1">
+          {% csrf_token %}
+      <label>Name</label>
+      <input type="text" class="form-field animation a3" placeholder="Name" name="name" required><br>
+      <label>account_date</label>
+      <input type="date" class="form-field animation a3" placeholder="account_date " name="acdate" required><br>
+      <label>stock</label>
+      <input type="text" class="form-field animation a3" placeholder="stock" name="stock" required><br>
+      <button class="animation a6" type="submit"onclick="return valid()">Register</button>
+    </form>
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</html>

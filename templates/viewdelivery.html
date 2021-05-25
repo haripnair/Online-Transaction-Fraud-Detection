@@ -1,0 +1,61 @@
+
+
+
+
+<html>
+    <head>
+        <title></title>
+        {%load static%}
+        <style>
+            body{
+                background-image: url({% static '/img/phone.jpg' %});
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size:100% 100%;
+                
+            }
+            #customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers td{
+    background-color: white;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+        </style>
+    </head>
+    <body>
+        <table align="center" id="customers">
+            <tr>
+                <th>delivery_id</th>
+                <th>order_id</th>
+                <th>status</th>
+                <th>delivery_date</th>
+                <th>time</th>
+            </tr>
+            {% for p in st %}
+            <tr>
+                <td>{{p.delivery_id}}</td>
+                <td>{{p.order_id}}</td>
+                <td>{{p.status}}</td>
+                <td>{{p.delivery_date}}</td>
+                <td>{{p.time}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

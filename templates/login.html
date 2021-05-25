@@ -1,0 +1,33 @@
+<html>
+   {% load static %}
+   <head>
+       <link rel="stylesheet" href="{% static '/css/phone.css' %}">
+   </head>
+
+<div class="basic">
+  {% include "publicheader.html" %}
+
+</div>
+<div class="container">
+  <div class="left">
+    <div class="header">
+    
+      
+    </div>
+    <div class="form">
+        <form action="/loginsave/" enctype= "multipart/form-data" method="POST" name="f1">
+          {% csrf_token %}
+      <label> user_id</label>
+      <br>
+     
+      <input type="text" class="form-field animation a3" placeholder="user_id" name="user_id" required><br>
+      <label>password</label>
+      <br>
+      <input type="password" class="form-field animation a3" placeholder="password" name="password" required><br>
+      <button class="animation a6" type="submit">LOGIN</button>
+    </form>
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</html>

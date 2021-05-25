@@ -1,0 +1,41 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    {%load static%}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static '/css/sample1.css' %}">
+</head>
+<body>
+<div class="navbar">
+  <a href="">NOTIFICATION</a>
+  <a href="/">VIEWFEEDBACK</a>
+  <div class="dropdown">
+    <button class="dropbtn">TOURNAMENT 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/">View Teamtournament Booking</a>
+    </div>
+  </div> 
+  <div class="dropdown">
+    <button class="dropbtn">TURF MANAGEMENT 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/">Add Turf</a>
+      <a href="/">Remove Turfs</a>
+      <a href="/">Verify Turf Registration</a>
+    </div>
+  </div> 
+  <div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search.." name="search" class="search">
+      <button type="submit"  ><i class="fa fa-search" ></i></button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

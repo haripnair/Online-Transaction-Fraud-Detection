@@ -1,0 +1,45 @@
+<html>
+   {% load static %}
+   <head>
+       <link rel="stylesheet" href="{% static '/css/phone.css' %}">
+       <script type="text/javascript">
+        function valid()
+          {
+            curDate= new Date();
+          enterDate=new
+          Date(f1.dvdate.value);
+          if(enterDate<curDate)
+          {
+            alert("Enter valid date");
+            f1.dvdate.focus;
+            return false;
+          }
+          return true;
+          }
+          </script>
+   </head>
+
+<div class="basic">
+  {% include "staffheader.html" %}
+
+</div>
+<div class="container">
+  <div class="left">
+   
+    <div class="form">
+        <form action="/deliverysave/" enctype= "multipart/form-data" method="POST" name="f1">
+          {% csrf_token %}
+      <label>order_id</label>
+      <br>
+      <input type="text" class="form-field animation a3" placeholder=" order_id" name="order_id" value="{{d.order_id}}" required><br>
+      <label>delivery_date</label><br>
+      <input type="date" class="form-field animation a3" placeholder="delivery_date" name="dvdate" required><br>
+      <label>time</label><br>
+      <input type="time" class="form-field animation a3" placeholder="time" name="time" required><br>
+      <button class="animation a6" type="submit" onclick="return valid()">Register</button>
+    </form>
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</html>

@@ -1,0 +1,66 @@
+
+
+
+
+<html>
+    <head>
+            <div class="basic">
+                    {% include "staffheader.html" %}
+                  
+                  </div>
+        <title></title>
+        {%load static%}
+        <style>
+            body{
+                background-image: url({% static '/img/phone.jpg' %});
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size:100% 100%;
+                
+            }
+            #customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers td{
+    background-color: white;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(15, 15, 15);
+  color: white;
+}
+        </style>
+    </head>
+    <body>
+        <br><br><br>
+        <table align="center" id="customers">
+            <tr>
+                <th>coustomer_id</th>
+                <th>name</th>
+                <th>address</th>
+                <th>phone</th>
+                <th>email</th>
+            </tr>
+            {% for p in st %}
+            <tr>
+                <td>{{p.coustomer_id}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.address}}</td>
+                <td>{{p.phone}}</td>
+                <td>{{p.email}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

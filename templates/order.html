@@ -1,0 +1,81 @@
+<html>
+   {% load static %}
+   <head>
+      <div class="basic">
+          {% include "coustomerheader.html" %}
+        
+        </div>
+       <link rel="stylesheet" href="{% static '/css/phone.css' %}">
+       <script type="text/javascript">
+        function valid()
+          {
+            if(isNaN(f1.quantity.value))
+           {
+             alert("Enter quantity in numeric format.");
+             f1.quantity.focus();
+         return false;
+           }
+           curDate= new Date();
+          enterDate=new
+          Date(f1.order_date.value);
+          if(enterDate<curDate)
+          {
+            alert("Enter valid date");
+            f1.order_date.focus;
+            return false;
+          }
+          if(!isNaN(f1.bank_name.value))
+           {
+             alert("Enter bank_name in charecter format.");
+             f1.bank_name.focus();
+         return false;
+           }
+           if(isNaN(f1.card_no.value))
+           {
+             alert("Enter card_no in numeric format.");
+             f1.card_no.focus();
+         return false;
+           }
+           curDate= new Date();
+          enterDate=new
+          Date(f1.pay_date.value);
+          if(enterDate<curDate)
+          {
+            alert("Enter valid date");
+            f1.pay_date.focus;
+            return false;
+          }
+          return true;
+          }
+          </script>
+   </head>
+
+
+<div class="container">
+  <div class="left">
+  
+    <div class="form">
+    <form action="/ordersave/" enctype= "multipart/form-data" method="POST" name="f1">
+      {% csrf_token %}
+    
+      <label>product_id</label><br>
+      <input type="text" class="form-field animation a3" placeholder="product_id" name="product_id" value="{{da.product_id}}" required><br>
+      <label>quantity</label><br>
+      <input type="number" class="form-field animation a3" placeholder="quantity" name="quantity" required><br>
+      <label>amount</label><br>
+      <input type="text" class="form-field animation a3" placeholder="amount" name="amount" value="{{da1.price}}" readonly="readonly"><br>
+     
+      <label>bankname</label><br>
+      <input type="text" class="form-field animation a3" placeholder="bank_name" name="bank_name" required><br>
+      <label>card_type</label><br>
+      <input type="text" class="form-field animation a3" placeholder="card_type" name="cardtype" required><br>
+      <label>card_no</label><br>
+      <input type="number" class="form-field animation a3" placeholder="card_no" name="card_no" required><br>
+     
+      <button class="animation a6" type="submit" onclick="return valid()">Register</button>
+    </form>
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</html>

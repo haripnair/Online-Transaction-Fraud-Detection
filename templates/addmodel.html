@@ -1,0 +1,57 @@
+<html>
+   {% load static %}
+   <head>
+       <link rel="stylesheet" href="{% static '/css/phone.css' %}">
+      <script type="text/javascript">
+       function valid()
+         {
+           if(isNaN(f1.modelno.value))
+           {
+             alert("Enter model no in numeric format.");
+             f1.modelno.focus();
+         return false;
+           }
+           if(!isNaN(f1.name.value))
+           {
+             alert("Enter model name in charecter format.");
+             f1.name.focus();
+         return false;
+           }
+           return true;
+         }
+       </script>
+   </head>
+
+<div class="basic">
+  {% include "adminheader.html" %}
+
+</div>
+<div class="container">
+  <div class="left">
+    <div class="header">
+     
+      
+    </div>
+    <div class="form">
+        <form action="/addmodelsave/" enctype= "multipart/form-data" method="POST" name="f1">
+          {% csrf_token %}
+      <label>Model No</label>
+      <br>
+      <input type="text" class="form-field animation a3" placeholder="Model No" name="modelno" required><br>
+      <label>Model Name</label>
+      <br>
+      <input type="text" class="form-field animation a3" placeholder="Model Name" name="name" required><br>
+      <label>Features</label>
+      <br>
+      <input type="text" class="form-field animation a3" placeholder="Features" name="feature" required><br>
+      <label>Photo</label>
+      <br>
+      <input type="file" class="form-field animation a3" placeholder="Photo" name="photo" required>
+      <br>
+      <button class="animation a6" type="submit" onclick="return valid()">Add</button>
+    </form>
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</html>

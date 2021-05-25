@@ -1,0 +1,66 @@
+
+
+
+
+<html>
+    <head>
+            <div class="basic">
+                    {% include "publicheader.html" %}
+                  
+                  </div>
+        <title></title>
+        {%load static%}
+        <style>
+            body{
+                background-image: url({% static '/img/phone.jpg' %});
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size:100% 100%;
+                
+            }
+            #customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers td{
+    background-color: white;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(1, 14, 1);
+  color: white;
+}
+        </style>
+    </head>
+    <body>
+        <br><br><br>
+        <table align="center" id="customers">
+            <tr>
+                <th>model_no</th>
+                <th>model_name</th>
+                <th>feature</th>
+                <th>Photo</th>
+                <th></th>
+            </tr>
+            {% for p in st %}
+            <tr>
+                <td>{{p.model_no}}</td>
+                <td>{{p.model_name}}</td>
+                <td>{{p.feature}}</td>
+                <td><img src="{{p.Photo}}" width="200" height="100"></td>
+                <td><a href="/searchproduct/{{p.model_no}}">View Products</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
